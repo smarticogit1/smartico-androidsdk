@@ -9,6 +9,6 @@ class SmarticoSdk private constructor() {
     }
 
     fun start() {
-        print("test smartico sdk")
+        println("----->test smartico sdk")
     }
 }
