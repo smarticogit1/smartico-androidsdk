@@ -3,17 +3,36 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'maven-publish'
 }
+
 android {
     namespace 'com.smartico.androidsdk'
     compileSdk 32
+    testFixtures {
+        enable = true
+    }
+    publishing {
+        singleVariant('sdkRelease') {
+            withSourcesJar()
+        }
+    }
+
 
     defaultConfig {
         minSdk 23
         targetSdk 32
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        aarMetadata {
+            minCompileSdk = 22
+        }
+    }
+    productFlavors {
+        flavorDimensions "default"
+        sdk {
+            aarMetadata {
+                minCompileSdk = 22
+            }
+        }
     }
 
     buildTypes {
@@ -27,6 +46,16 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            sdkRelease(MavenPublication) {
+                from components.sdkRelease
+            }
+        }
     }
 }
 
