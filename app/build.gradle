@@ -16,16 +16,14 @@ android {
         }
     }
 
-
     defaultConfig {
         minSdk 23
         targetSdk 32
-        versionCode 1
-        versionName "1.0"
         aarMetadata {
             minCompileSdk = 22
         }
     }
+
     productFlavors {
         flavorDimensions "default"
         sdk {
@@ -62,4 +60,7 @@ afterEvaluate {
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.7.0'
+    api 'com.squareup.okhttp3:okhttp:4.10.0'
+    api 'com.google.code.gson:gson:2.10.1'
+
 }
