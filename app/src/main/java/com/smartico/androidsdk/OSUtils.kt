@@ -3,7 +3,7 @@ package com.smartico.androidsdk
 import android.provider.Settings
 import java.util.*
 
-class OSUtils {
+internal class OSUtils {
     companion object {
         fun deviceId(): String {
             SmarticoSdk.instance.context.get()?.let {

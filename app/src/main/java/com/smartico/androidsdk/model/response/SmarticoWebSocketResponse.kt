@@ -1,3 +1,0 @@
-package com.smartico.androidsdk.model.response
-
-interface SmarticoWebSocketResponse
